@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complex AI Chatbot</title>
+    <style>
+        P{
+            text-align: center;
+            font-size: 30px;
+            font-style:oblique;
+        }
+        .chat{
+  margin: auto;
+  width: 570px;
+  border: 7px solid rgb(0, 0, 0);
+  padding: 10px;
+  
+        }
+
+    </style>
+</head>
+<body>
+   <div class=""
+    <div id="chatbox">
+        <div class="chat" id="chat">
+            <p class="bot"><b>Welcome! How can I assist you today?</b></p>
+            <p><img src="smile dog.jpg" alt="dog" width="450" height="400"></p>
+        <input type="text" id="userInput" placeholder="How can I assist you today... " onkeypress="sendUserMessage(event)">
+    </div>
+    <script>
+        function appendMessage(who, message) {
+            const chat = document.getElementById('chat');
+            const p = document.createElement('p');
+            p.classList.add(who);
+            p.textContent = message;
+            chat.appendChild(p);
+        }
+
+        function sendUserMessage(event) {
+            if (event.key === 'Enter') {
+                const userInput = document.getElementById('userInput');
+                const userMessage = userInput.value;
+                appendMessage('user', userMessage);
+                userInput.value = '';
+
+                // Simulated bot response (replace with more advanced logic)
+                setTimeout(() => {
+                    const botResponse = getBotResponse(userMessage);
+                    appendMessage('bot', botResponse);
+                }, 1000);
+            }
+        }
+
+        function getBotResponse(userMessage) {
+            // Replace with more advanced AI logic or use external services
+            userMessage = userMessage.toLowerCase();
+            if (userMessage.includes('hello')) {
+                return 'Hello! How can I help you today?';
+            } else if (userMessage.includes('how are you')) {
+                return "I'm great tell me about your day";
+            } else if (userMessage.includes('tell me a joke')) {
+                return 'Ur moms a joke';
+            }else if (userMessage.includes('can i talk to you about something')) {
+                return 'Sure I am here for you if you need anything';
+            }
+        else if (userMessage.includes('thats not very nice')) {
+                return 'Im sorry if I offended you in any way';
+            } 
+            else {
+                return 'Sorry I am not programed to respond to that yet but I can help you with something else. What do you need';
+            }
+        }
+    </script>
+</body>
+</html>
